@@ -40,7 +40,7 @@ var app = builder.Build();
 app.UseCors(); 
 
 //הגדרת השליפות
-app.MapGet("/", () => "the project is working!!!!");
+// app.MapGet("/", () => "the project is working!!!!");
 app.MapGet("/items", async (ToDoDbContext context) => await context.Items.ToListAsync());
 
 app.MapPost("/items", async (ToDoDbContext context, Item item) =>
