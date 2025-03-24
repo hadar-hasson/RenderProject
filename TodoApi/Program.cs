@@ -30,16 +30,17 @@ var app = builder.Build();
 
 
 // הפעלת Swagger
-if (app.Environment.IsDevelopment()) 
-{
+// if (app.Environment.IsDevelopment()) 
+// {
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+// }
 
 //שימוש ב-cors
 app.UseCors(); 
 
 //הגדרת השליפות
+app.MapGet("/", () => "the project is working!!!!");
 app.MapGet("/items", async (ToDoDbContext context) => await context.Items.ToListAsync());
 
 app.MapPost("/items", async (ToDoDbContext context, Item item) =>
